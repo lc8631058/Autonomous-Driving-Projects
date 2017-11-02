@@ -141,11 +141,11 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| class 2     		| class 2   									| 
-| class 6     			| class 6 										|
-| class 17					| class 17											|
-| class 19	      		| class 19					 				|
-| class 26			| class 26      							|
+| Speed limit (50km/h)     		| Speed limit (50km/h)   									| 
+| End of speed limit (80km/h)     			| End of speed limit (80km/h) 										|
+| No entry					| No entry											|
+| Dangerous curve to the left	      		| Dangerous curve to the left					 				|
+| Traffic signals			| Traffic signals      							|
 
 
 The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 97.29%.
@@ -156,15 +156,15 @@ The model was able to correctly guess 5 of the 5 traffic signs, which gives an a
 
 The code for making predictions on my final model is located in the 43th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this belong to class 20 (probability of 9.99915719e-01), and the image does belong to class 20. The top five soft max probabilities were
+For the first image, the model is relatively sure that this is Dangerous curve to the right sign (probability of 9.99915719e-01), and the image does exist Dangerous curve to the right sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 9.99915719e-01        			| class 20   									| 
-| 4.76271380e-05     				| class 28    										|
-| 2.77236813e-05					| class 32   										|
-| 5.58202373e-06	      			| class 27   					 				|
-| 1.41421299e-06			    | class 0         							|
+| 9.99915719e-01        			| Dangerous curve to the right  									| 
+| 4.76271380e-05     				| Children crossing    										|
+| 2.77236813e-05					| End of all speed and passing limits  										|
+| 5.58202373e-06	      			| Pedestrians  					 				|
+| 1.41421299e-06			    | Speed limit (20km/h)         							|
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
