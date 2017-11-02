@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
+[image1]: ./examples/dataset_frequency_distribution.png "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
@@ -25,35 +25,60 @@ The goals / steps of this project are the following:
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image9]: ./examples/dataset_visul.png "dataset samples"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+We used the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) as our dataset, this dataset has been preprocessed as 3 pandas files with uniform image size [32, 32], they are train data, valid data and test data, each data has 'features' and 'labels'.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
+You're reading it! and here is a link to my [project code](https://github.com/lc8631058/SDCND/blob/master/P2-Traffic-Sign-Classifier/Traffic_Sign_Classifier.ipynb)
 
-####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+### Data Set Summary & Exploration
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
+* The size of training set is ? 
+```python
+n_train = len(X_train)
+==> 34799
+```
 * The size of the validation set is ?
+```python
+n_validation = len(X_valid)
+==> 4410
+```
 * The size of test set is ?
+```python
+n_test = len(X_test)
+==> 12630
+```
 * The shape of a traffic sign image is ?
+```python
+image_shape = X_train.shape[1:]
+==> (32, 32, 3)
+```
 * The number of unique classes/labels in the data set is ?
+```python
+n_classes = len(set(y_train))
+==> 43
+```
+After that we use `preprocessing.LabelBinarizer()` to convert the labels to one-hot encode form. 
 
-####2. Include an exploratory visualization of the dataset.
+#### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. It is a bar chart showing the frequncy distribution of each class in out train, validation and test data.
 
 ![alt text][image1]
+
+And we also shuffled all of the datas.So here are some shuffled samples of train data:
+
+![alt text][image9]
 
 ###Design and Test a Model Architecture
 
