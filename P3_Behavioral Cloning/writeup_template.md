@@ -21,6 +21,8 @@ The goals / steps of this project are the following:
 [image5]: ./examples/placeholder_small.png "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
 [image7]: ./examples/placeholder_small.png "Flipped Image"
+[image8]: ./examples/case_1.png 
+[image9]: ./examples/case_2.png 
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -52,7 +54,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 My model consists of a convolution neural network with 5x5 filter sizes and depths between 24 and 36 (model.py lines 100-106) 
 
-The model includes RELU layers to introduce nonlinearity (code line 100), and the data is normalized in the model using a Keras lambda layer (code line 96), using Cropping2D function I cut the input images from size 160x320x3 to 74x320x3 (code line 97), I also added BatchNormalization function after each layer eacept for last dense layer(code line 98, 101, 105). 
+The model includes RELU layers to introduce nonlinearity (code line 100), and the data is normalized in the model using a Keras lambda layer (code line 96), using Cropping2D function I cut the input images from size 160x320x3 to 74x320x3 (code line 97). 
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -66,7 +68,7 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road to train my model. I added a correction value to the steering angle of left-side images and right-side images, this correction value is 0.25. I didn't collect data by myself, cause I used to use some data collected by myself, but the result is really bad, so I think collect data by ourselves could create many uncertain factors, especitalluy our keyboard only have 4 keys to control the direction, but the directions should be various value, cause this is a regression problem.
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road to train my model. I added a correction value to the steering angle of left-side images and right-side images, this correction value is 0.25. I didn't collect data by myself, cause I used to use some data collected by myself, but the result is really bad, so I think collect data by ourselves could create many uncertain factors, especitalluy our keyboard only have 4 keys to control the direction, but the directions should be various value, cause this is a regression problem. The udacity's data has no recovery data, the recovery data represents the data collected when the car runs away the road, we recover the car from side of the road to the middle of the road. So we use the left- and right- images collected by side cameras in front of the car to replace the recovery date, we also add a correction to these side-images' steering angle. At final we flipped all data in order to augment the data, and then these steering angles are set as the steering angle of flipped data by multiply by -1.0.
 
 For details about how I created the training data, see the next section. 
 
@@ -74,17 +76,18 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to read the paper 
+The overall strategy for deriving a model architecture was to read the [Nvidia's paper](https://github.com/lc8631058/SDCND/blob/master/P3_Behavioral%20Cloning/End%20to%20End%20Learning%20for%20Self-Driving%20Cars.pdf) provided by udacity.
 
-My first step was to use a convolution neural network model similar to the [Nvidia's architecture]() provided by udacity. I thought this model might be appropriate because ...
+My first step was to use a convolution neural network model similar to the [Nvidia's architecture](https://github.com/lc8631058/SDCND/blob/master/P3_Behavioral%20Cloning/End%20to%20End%20Learning%20for%20Self-Driving%20Cars.pdf). I thought this model might not be appropriate because I only use the data provided by udacity, it's not a big dataset, so I need to reduce the convolutional layers as well as dense layers describe in Nvidia's architecture.
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
-To combat the overfitting, I modified the model so that ...
+To combat the overfitting, I modified the model so that I added BatchNormalization function after each layer eacept for last dense layer(code line 98, 101, 105), as well as dropout layers described above.
 
-Then I ... 
+The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track as shown in below images. To improve the driving behavior in these cases, I ....
 
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+![alt text][image8]
+![alt text][image9]
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
