@@ -15,12 +15,11 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image2]: ./examples/central_driving.png "Grayscaling"
+[image3]: ./examples/crop_1.png "crop Image"
+[image4]: ./examples/crop_2.png "crop Image"
+[image6]: ./examples/flip_1.png "Flipped Image"
+[image7]: ./examples/flip_2.png "Flipped Image"
 [image8]: ./examples/case_1.png 
 [image9]: ./examples/case_2.png 
 
@@ -54,7 +53,10 @@ The model.py file contains the code for training and saving the convolution neur
 
 My model consists of a convolution neural network with 5x5 filter sizes and depths between 24 and 36 (model.py lines 100-106) 
 
-The model includes RELU layers to introduce nonlinearity (code line 100), and the data is normalized in the model using a Keras lambda layer (code line 96), using Cropping2D function I cut the input images from size 160x320x3 to 74x320x3 (code line 97). 
+The model includes RELU layers to introduce nonlinearity (code line 100), and the data is normalized in the model using a Keras lambda layer (code line 96), using Cropping2D function I cut the input images from size 160x320x3 to 74x320x3 (code line 97). Here are some examples of cropped image:
+
+![alt text][image3]
+![alt text][image4]
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -68,7 +70,10 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road to train my model. I added a correction value to the steering angle of left-side images and right-side images, this correction value is 0.25. I didn't collect data by myself, cause I used to use some data collected by myself, but the result is really bad, so I think collect data by ourselves could create many uncertain factors, especitalluy our keyboard only have 4 keys to control the direction, but the directions should be various value, cause this is a regression problem. The udacity's data has no recovery data, the recovery data represents the data collected when the car runs away the road, we recover the car from side of the road to the middle of the road. So we use the left- and right- images collected by side cameras in front of the car to replace the recovery date, we also add a correction to these side-images' steering angle. At final we flipped all data in order to augment the data, and then these steering angles are set as the steering angle of flipped data by multiply by -1.0.
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road to train my model. I added a correction value to the steering angle of left-side images and right-side images, this correction value is 0.25. I didn't collect data by myself, cause I used to use some data collected by myself, but the result is really bad, so I think collect data by ourselves could create many uncertain factors, especitalluy our keyboard only have 4 keys to control the direction, but the directions should be various value, cause this is a regression problem. The udacity's data has no recovery data, the recovery data represents the data collected when the car runs away the road, we recover the car from side of the road to the middle of the road. So we use the left- and right- images collected by side cameras in front of the car to replace the recovery date, we also add a correction to these side-images' steering angle. At final we flipped all data in order to augment the data, and then these steering angles are set as the steering angle of flipped data by multiply by -1.0. For example, here is an image that has then been flipped:
+
+![alt text][image6]
+![alt text][image7]
 
 For details about how I created the training data, see the next section. 
 
@@ -113,12 +118,6 @@ I then recorded the vehicle recovering from the left side and right sides of the
 
 Then I repeated this process on track two in order to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
 
 After the collection process, I had X number of data points. I then preprocessed this data by ...
 
