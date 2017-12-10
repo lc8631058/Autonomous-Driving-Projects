@@ -82,7 +82,7 @@ lines = shuffle(lines)
 train_samples, validation_samples = train_test_split(lines, test_size=0.2)
 
 # compile and train the model using the generator function
-correct = 0.35
+correct = 0.25
 batch_size = 60
 
 train_generator = data_generator(train_samples, batch_size=batch_size, correc=correct)
