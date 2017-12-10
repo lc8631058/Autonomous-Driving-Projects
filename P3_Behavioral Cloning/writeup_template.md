@@ -22,6 +22,8 @@ The goals / steps of this project are the following:
 [image7]: ./examples/flip_2.png "Flipped Image"
 [image8]: ./examples/case_1.png 
 [image9]: ./examples/case_2.png 
+[image10]: ./examples/recovery_1.png 
+[image11]: ./examples/recovery_2.png 
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -110,14 +112,15 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![alt text][image2]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recovery from side to center. These images show what a recovery looks like starting from right side and left side of a road :
 
+![alt text][image10]
+![alt text][image11]
 
-Then I repeated this process on track two in order to get more data points.
+I didnt's repeated this process on track two, cause collect data in track two by myself will create many biases, so I think it's not necessary right now, I don't want to bring some misleading to my network.
 
+After the collection process, I had 9942 number of data points. I then preprocessed this data by the approach describe above.
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 60 as evidenced by training. I used an adam optimizer so that manually training the learning rate wasn't necessary.
