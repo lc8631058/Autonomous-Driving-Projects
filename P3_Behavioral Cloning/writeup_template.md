@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/Behavioral cloning.png "Model Visualization"
+[image1]: ./examples/Behavioral_cloning.png "Model Visualization"
 [image2]: ./examples/central_driving.png "Grayscaling"
 [image3]: ./examples/crop_1.png "crop Image"
 [image4]: ./examples/crop_2.png "crop Image"
@@ -25,7 +25,8 @@ The goals / steps of this project are the following:
 [image10]: ./examples/recovery_1.png 
 [image11]: ./examples/recovery_2.png 
 [image12]: ./examples/model_2_curve.png 
-[image13]: ./examples/simulator effect.jpg 
+[image13]: ./examples/simulator_effect.jpg 
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
