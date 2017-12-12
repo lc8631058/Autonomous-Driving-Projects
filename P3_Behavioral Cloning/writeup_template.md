@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
+[image1]: ./examples/Behavioral cloning.png "Model Visualization"
 [image2]: ./examples/central_driving.png "Grayscaling"
 [image3]: ./examples/crop_1.png "crop Image"
 [image4]: ./examples/crop_2.png "crop Image"
@@ -24,6 +24,8 @@ The goals / steps of this project are the following:
 [image9]: ./examples/case_2.png 
 [image10]: ./examples/recovery_1.png 
 [image11]: ./examples/recovery_2.png 
+[image12]: ./examples/model_2_curve.png 
+[image13]: ./examples/simulator effect.jpg 
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -91,22 +93,42 @@ In order to gauge how well the model was working, I split my image and steering 
 
 To combat the overfitting, I modified the model so that I added BatchNormalization function after each layer eacept for last dense layer(code line 98, 101, 105), as well as dropout layers described above.
 
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track as shown in below images. To improve the driving behavior in these cases, I ....
+The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track as shown in below images. 
 
 ![alt text][image8]
 ![alt text][image9]
+To improve the driving behavior in these cases, I re-train the model to further decrease the loss, here is the loss_curve:
+![alt text][image12]
+And I found that, the graphic quality and screen resolution of the simulator also influent the test results, for a same model in higher effect my car will press the lines, but with lowest effect it won’t. So I turn donw the graphic quality and screen resolution to lowest, then my car can run through whole track smoothly.
+![alt text][image13]
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes:
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 160x320x3 RGB image							| 
+| Cropping         		| 74x320x3 RGB image							| 
+| Batch Normalization         		| 						| 
+| Convolution 5x5    	| 2x2 stride, valid padding, outputs 35x158x24 	|
+| Batch Normalization         		| 						| 
+| RELU					|												|
+| Convolution 5x5	    | 2x2 stride, valid padding, outputs 16x77x36 	|
+| Batch Normalization         		| 						| 
+| RELU					|												|
+| Fully connected		| 100 hidden units	|
+| Batch Normalization         		| 						| 
+| RELU					|												|
+| Fully connected		| 1 hidden units	|
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
 ![alt text][image1]
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
