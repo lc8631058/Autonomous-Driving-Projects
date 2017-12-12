@@ -107,6 +107,11 @@ model.add(Dropout(0.5))
 
 model.add(Flatten())
 
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.5))
+
 model.add(Dense(1))
 adam = Adam(lr=0.0008)
 
