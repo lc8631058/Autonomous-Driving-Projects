@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 [image1]: ./examples/undistort_output.png "Undistorted"
 [image2]: ./examples/before-undis.png "Road Transformed before"
 [image3]: ./examples/after-undis.png "Road Transformed after"
-[image4]: ./examples/binary_combo_example.jpg "Binary Example"
+[image4]: ./examples/combination_selection_step.png "Binary Example"
 [image5]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image6]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image7]: ./examples/example_output.jpg "Output"
@@ -84,7 +84,7 @@ To create the thresholded binary image, we have many methods (After the cells wi
 
 I used a combination of HLS, gradient direction and magnitude of Sobel operator selections to generate 3 binary images. Here's an example of my output for this step. (note: this is not actually from one of the test images)
 
-![alt text][image3]
+![alt text][image4]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
