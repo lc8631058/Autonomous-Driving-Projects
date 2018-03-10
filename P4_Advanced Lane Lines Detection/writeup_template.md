@@ -45,7 +45,9 @@ You're reading it!
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
 The code for this step is contained in the 2-th and 3-th code cells of the IPython notebook located in "./P4 Advanced Lane Lines Detection.ipynb".
+
 I start by preparing "object point",which will be the (x, y, z)coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x,y) plane at z=0, such that the object points are the same for each calibration image. Thus, 'obj' is just a replicated array of coordinates, and 'objpoints' will be appended with a copy of it every time I sucessfully detect all chessboard corners in a test image. 'imagepoints' will be appended with the (x,y) pixel position of each of the corners in the image plane with each successful chessboard detection.
+
 I then used the output 'objectpoints' and 'imagepoints' to compute the camera calibration and distortion coefficients using the function I have written called 'cal_undistort', it uses the 'cv2.calibrateCamera()' function to calculate the undistort parameters, then applied the distortion correction to the test image using 'cv2.undistort()' function and used a test image to see the effect:
 
 ![alt text][image1]
@@ -55,6 +57,7 @@ I then used the output 'objectpoints' and 'imagepoints' to compute the camera ca
 #### 1. Provide an example of a distortion-corrected image.
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one: (1) At first I have already got the imagepoints and objectpoints from the calibration images. (2) I read a test image from test_images folder using cv2.imread. (3) Convert the BGR image to RGB scale. (4) Use 'cal_undistort()' function to undistort this image.
+
 The particular process could be checked in the cells with the title "Apply a distortion correction to raw images".
 
 Before undistort:
@@ -67,7 +70,7 @@ After undistort:
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-To create the thresholded binary image, we have many methods.
+To create the thresholded binary image, we have many methods (After the cells with title 'Use color transforms, gradients, etc., to create a thresholded binary image').
 
 (1) Absolute Sobel Operator. This method take the derivatiive in the x or y orient of the gray-scale image, x or y could be presupposed by yourself, and apply absolute operation to calculated gradient. Then you will set the minimal and maximal thresholds, the absoluted grdient values which satisfy the thresholds will be judged as 1, otherwise 0, then we get the binary image.
 
@@ -77,7 +80,9 @@ To create the thresholded binary image, we have many methods.
 
 (4) HLS Selection. Simply convert the RGB or BGR image to HLS scale, apply the thresholds to HLS-scaled image.
 
-(5) Combined Selection. This method is intend to use all the selection methods from (1) to (4). You can select two or three even four of the methods above to make the selection. For me I use HLS selection, magnitude of Sobel opertor and Gradient direction selection, then I got 3 binary images, and I can use the logic operation I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in another_file.py). Here's an example of my output for this step. (note: this is not actually from one of the test images)
+(5) Combined Selection. This method is intend to use all the selection methods from (1) to (4). You can select two or three even four of the methods above to make the selection. For me I use HLS selection, magnitude of Sobel opertor and Gradient direction selection, then I got 3 binary images, and I can use the logic operation to make the final selection.
+
+I used a combination of HLS, gradient direction and magnitude of Sobel operator selections to generate 3 binary images. Here's an example of my output for this step. (note: this is not actually from one of the test images)
 
 ![alt text][image3]
 
