@@ -134,11 +134,11 @@ Then I did some other stuff and fit my lane lines with a 2nd order polynomial ki
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in the code cells with title "From now, let's test on videos", the `calculate_curvature_radius` function calculates the curvature of lane line and the function `process_frames` estimates the bias of vehicle's position from center.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in `process_frames` function on every frames of video.  Here is an example of my result on a test image:
 
 ![alt text][image6]
 
