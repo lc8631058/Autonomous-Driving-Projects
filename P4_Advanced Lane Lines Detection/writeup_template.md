@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 [image5]: ./examples/wraped_img.png "Warp Example"
 [image6]: ./examples/src_dst.png "src and dst points"
 [image7]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image8]: ./examples/example_output.jpg "Output"
+[image8]: ./examples/test2.png "Output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -140,7 +140,7 @@ I did this in the code cells with title "From now, let's test on videos", the `c
 
 I implemented this step in `process_frames` function on every frames of video.  Here is an example of my result on a test image:
 
-![alt text][image6]
+![alt text][image8]
 
 ---
 
