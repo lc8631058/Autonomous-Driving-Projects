@@ -23,9 +23,10 @@ The goals / steps of this project are the following:
 [image2]: ./examples/before-undis.png "Road Transformed before"
 [image3]: ./examples/after-undis.png "Road Transformed after"
 [image4]: ./examples/combination_selection_step.png "Binary Example"
-[image5]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image6]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image7]: ./examples/example_output.jpg "Output"
+[image5]: ./examples/wraped_img.png "Warp Example"
+[image6]: ./examples/src_dst.png "src and dst points"
+[image7]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image8]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -88,7 +89,9 @@ I used a combination of HLS, gradient direction and magnitude of Sobel operator 
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform located in the cells with title, the code includes a function called `corners_unwarp()`, which appears in the first code cell with the title "Apply a perspective transform to rectify binary image".  The `corners_unwarp()` function takes as inputs an image (`undistorted_gray_img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform located in the cells with title, the code includes a function called `corners_unwarp()`, which appears in the first code cell with the title "Apply a perspective transform to rectify binary image".  The `corners_unwarp()` function takes as inputs an image (`undistorted_gray_img`), as well as source (`src`) and destination (`dst`) points.  
+
+#### Actually I didn't chose the hardcode the source and destination points in the following manner:
 
 ```python
 src = np.float32(
@@ -103,18 +106,24 @@ dst = np.float32(
     [(img_size[0] * 3 / 4), 0]])
 ```
 
-This resulted in the following source and destination points:
+I just chose the `src` and `dst` empirically:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| 495,490      | 50,300        | 
+| 200,700      | 170,700      |
+| 800,490     | 1230,300      |
+| 1115,700      | 1110,700       |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image4]
+Here is the illustration of `src` and `dst` points from the images:
+
+![alt text][image6]
+
+Here is the wraped images:
+
+![alt text][image5]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
