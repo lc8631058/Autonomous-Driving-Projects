@@ -27,7 +27,7 @@ The goals / steps of this project are the following:
 [image6]: ./examples/src_dst.png "src and dst points"
 [image7]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image8]: ./examples/test2.png "Output"
-[video1]: ./project_video.mp4 "Video"
+[video1]: ./test_video_output/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -148,7 +148,7 @@ I implemented this step in `process_frames` function on every frames of video.  
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./test_video_output/project_video.mp4)
 
 ---
 
