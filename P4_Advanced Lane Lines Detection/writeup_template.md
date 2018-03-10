@@ -46,9 +46,9 @@ You're reading it!
 
 The code for this step is contained in the 2-th and 3-th code cells of the IPython notebook located in "./P4 Advanced Lane Lines Detection.ipynb".
 
-I start by preparing "object point",which will be the (x, y, z)coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x,y) plane at z=0, such that the object points are the same for each calibration image. Thus, 'obj' is just a replicated array of coordinates, and 'objpoints' will be appended with a copy of it every time I sucessfully detect all chessboard corners in a test image. 'imagepoints' will be appended with the (x,y) pixel position of each of the corners in the image plane with each successful chessboard detection.
+I start by preparing `object point`,which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x,y) plane at z=0, such that the object points are the same for each calibration image. Thus, `obj` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I sucessfully detect all chessboard corners in a test image. `imagepoints` will be appended with the (x,y) pixel position of each of the corners in the image plane with each successful chessboard detection.
 
-I then used the output 'objectpoints' and 'imagepoints' to compute the camera calibration and distortion coefficients using the function I have written called 'cal_undistort', it uses the 'cv2.calibrateCamera()' function to calculate the undistort parameters, then applied the distortion correction to the test image using 'cv2.undistort()' function and used a test image to see the effect:
+I then used the output `objectpoints` and `imagepoints` to compute the camera calibration and distortion coefficients using the function I have written called `cal_undistort`, it uses the `cv2.calibrateCamera()` function to calculate the undistort parameters, then applied the distortion correction to the test image using `cv2.undistort()` function and used a test image to see the effect:
 
 ![alt text][image1]
 
@@ -88,7 +88,7 @@ I used a combination of HLS, gradient direction and magnitude of Sobel operator 
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform located in the cells with title, the code includes a function called `corners_unwarp()`, which appears in the first code cell with the title "Apply a perspective transform to rectify binary image".  The `corners_unwarp()` function takes as inputs an image (`undistorted_gray_img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
 ```python
 src = np.float32(
