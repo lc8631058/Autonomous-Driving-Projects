@@ -56,8 +56,10 @@ I then used the output 'objectpoints' and 'imagepoints' to compute the camera ca
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one: (1) At first I have already got the imagepoints and objectpoints from the calibration images. (2) I read a test image from test_images folder using cv2.imread. (3) Convert the BGR image to RGB scale. (4) Use 'cal_undistort()' function to undistort this image.
 The particular process could be checked in the cells with the title "Apply a distortion correction to raw images".
-Before transformation:![alt text][image2]
-After transformation:![alt text][image3]
+
+Before undistort:![alt text][image2]
+
+After undistort:![alt text][image3]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
