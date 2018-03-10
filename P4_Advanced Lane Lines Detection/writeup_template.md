@@ -20,11 +20,12 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image2]: ./examples/before-undis.png "Road Transformed before"
+[image3]: ./examples/after-undis.png "Road Transformed after"
+[image4]: ./examples/binary_combo_example.jpg "Binary Example"
+[image5]: ./examples/warped_straight_lines.jpg "Warp Example"
+[image6]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image7]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -55,8 +56,10 @@ I then used the output 'objectpoints' and 'imagepoints' to compute the camera ca
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one: (1) At first I have already got the imagepoints and objectpoints from the calibration images. (2) I read a test image from test_images folder using cv2.imread. (3) Convert the BGR image to RGB scale. (4) Use 'cal_undistort()' function to undistort this image.
 The particular process could be checked in the cells with the title "Apply a distortion correction to raw images".
-'./examples/before-undis.png' './examples/after-undis.png'
+Before transformation:
 ![alt text][image2]
+After transformation:
+![alt text][image3]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
