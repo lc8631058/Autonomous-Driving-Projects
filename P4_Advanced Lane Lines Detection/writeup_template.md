@@ -68,10 +68,15 @@ After undistort:
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 To create the thresholded binary image, we have many methods.
+
 (1) Absolute Sobel Operator. This method take the derivatiive in the x or y orient of the gray-scale image, x or y could be presupposed by yourself, and apply absolute operation to calculated gradient. Then you will set the minimal and maximal thresholds, the absoluted grdient values which satisfy the thresholds will be judged as 1, otherwise 0, then we get the binary image.
+
 (2) Magnitude of Sobel Operator. This method calculate the magnitude using sobel on x and on y orients. And then it applies the same process as (1).
+
 (3) Gradients direction. Firt calculate the gray-scale image, then calculate gradient on both x and y orients, take absolute values of them. Use arctan to calculate the direction of the gradients, use thresholds to select pixels from the calculated direction mask, note that these thresholds should be angles.
+
 (4) HLS Selection. Simply convert the RGB or BGR image to HLS scale, apply the thresholds to HLS-scaled image.
+
 (5) Combined Selection. This method is intend to use all the selection methods from (1) to (4). You can select two or three even four of the methods above to make the selection. For me I use HLS selection, magnitude of Sobel opertor and Gradient direction selection, then I got 3 binary images, and I can use the logic operation I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in another_file.py). Here's an example of my output for this step. (note: this is not actually from one of the test images)
 
 ![alt text][image3]
