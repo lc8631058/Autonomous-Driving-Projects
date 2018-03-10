@@ -127,9 +127,10 @@ Here is the wraped images:
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+I use `sliding_window_search` function to find the lane line in the first frame of video. 
+Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this (Cells with title "Detect lane pixels and fit to find the lane boundary"):
 
-![alt text][image5]
+![alt text][image7]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
