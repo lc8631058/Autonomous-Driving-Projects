@@ -130,6 +130,7 @@ At first I read the [paper](https://github.com/lc8631058/SDCND/blob/master/P2-Tr
 
 Here are five German traffic signs that I found on the web:
 2,  6, 17, 19, 26
+
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
 
